@@ -2,16 +2,16 @@ import { ArrowUpRight } from "lucide-react";
 
 const PROJECTS = [
   {
-    title: "Nome do Projeto 1",
-    tags: ["React", "Next.js"],
-    description: "Em andamento.",
-    link: "#",
+    title: "Bikcraft",
+    tags: ["HTML/CSS", "JavaScript"],
+    description: "Concluído.",
+    link: "https://bikcraft-bicicletas-eletricas.vercel.app/",
   },
   {
-    title: "Nome do Projeto 2",
+    title: "EcoRota",
     tags: ["UI Design", "Figma"],
     description: "Em andamento.",
-    link: "#",
+    link: "https://www.figma.com/design/IaQlwxQIzbeWsQ47Cc0A9N/EcoRota?node-id=0-1&t=flTa1E98wtboM0qf-1",
   },
   {
     title: "Nome do Projeto 3",
