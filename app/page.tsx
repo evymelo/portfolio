@@ -1,19 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import LockScreen from "@/components/LockScreen";
-import Desktop from "@/components/Desktop";
+import LoadingScreen from "@/components/village/LoadingScreen";
+import Village from "@/components/village/Village";
+import { useTheme } from "@/lib/useTheme";
 
 export default function Home() {
-  const [isLocked, setIsLocked] = useState(true);
+  const [entered, setEntered] = useState(false);
+  const [theme, setTheme] = useTheme();
 
   return (
-    <main className="h-screen w-screen overflow-hidden bg-os-mist font-body">
-      {isLocked ? (
-        <LockScreen onUnlock={() => setIsLocked(false)} />
-      ) : (
-        <Desktop />
-      )}
+    <main className="relative h-dvh w-screen overflow-hidden font-body">
+      {entered ? <Village night={theme === "night"} onThemeChange={setTheme} /> : <LoadingScreen onEnter={() => setEntered(true)} />}
     </main>
   );
 }

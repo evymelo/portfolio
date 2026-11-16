@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fredoka, Quicksand } from "next/font/google";
 import "./globals.css";
+import "./village.css";
+import { THEME_BOOT_SCRIPT } from "@/lib/theme-boot";
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -15,8 +17,16 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Meu Portfólio — OS",
-  description: "Portfólio pessoal em formato de sistema operacional",
+  title: "Vila da Evelyn — Portfólio",
+  description: "Portfólio pessoal em formato de vila fofa e interativa",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#FFD9E6",
+  interactiveWidget: "resizes-content",
 };
 
 export default function RootLayout({
@@ -25,7 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
+      </head>
       <body className={`${fredoka.variable} ${quicksand.variable} font-body`}>
         {children}
       </body>
